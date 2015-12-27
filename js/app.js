@@ -47,6 +47,7 @@ openSansObserver.check().then(() => {
 import HomePage from './components/pages/home-page.react';
 import ReadmePage from './components/pages/readme-page.react';
 import NotFoundPage from './components/pages/not-found.react';
+import StartPage from './components/pages/start-page.react';
 import App from './components/app.react';
 
 // Import the CSS file, which HtmlWebpackPlugin transfers to the build folder
@@ -74,6 +75,7 @@ ReactDOM.render(
       <Route component={App}>
         <Route path="/" component={HomePage} />
         <Route path="/readme" component={ReadmePage} />
+        <Route path="/start" component={StartPage} />
         <Route path="*" component={NotFoundPage} />
       </Route>
     </Router>
