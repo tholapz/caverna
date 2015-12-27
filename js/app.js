@@ -44,24 +44,24 @@ openSansObserver.check().then(() => {
 });
 
 // Import the pages
-import HomePage from './components/pages/HomePage.react';
-import ReadmePage from './components/pages/ReadmePage.react';
-import NotFoundPage from './components/pages/NotFound.react';
-import App from './components/App.react';
+import HomePage from './components/pages/home-page.react';
+import ReadmePage from './components/pages/readme-page.react';
+import NotFoundPage from './components/pages/not-found.react';
+import App from './components/app.react';
 
 // Import the CSS file, which HtmlWebpackPlugin transfers to the build folder
 import '../css/main.css';
 
 // Create the store with the redux-thunk middleware, which allows us
 // to do asynchronous things in the actions
-import rootReducer from './reducers/rootReducer';
+import rootReducer from './reducers/root-reducer';
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const store = createStoreWithMiddleware(rootReducer);
 
 // Make reducers hot reloadable, see http://stackoverflow.com/questions/34243684/make-redux-reducers-and-other-non-components-hot-loadable
 if (module.hot) {
-  module.hot.accept('./reducers/rootReducer', () => {
-    const nextRootReducer = require('./reducers/rootReducer').default;
+  module.hot.accept('./reducers/root-reducer', () => {
+    const nextRootReducer = require('./reducers/root-reducer').default;
     store.replaceReducer(nextRootReducer);
   });
 }
